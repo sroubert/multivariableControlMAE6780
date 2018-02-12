@@ -1,0 +1,25 @@
+%% MAE 6780 HW 2 using Transition Matrix
+
+tspan = linspace(0,20,1000);
+
+x0 = [0; 0];
+
+xResponse1 = zeros(2,1000);
+xResponse(1:2,1) = x0;
+
+inputIntegration = 0;
+
+A = 0.5;
+m = 20;
+
+for t = 2:length(tspan)
+    
+    
+    phi = [cos(2*sqrt(6279)*tspan(t)/65)                5*sqrt(6279)*sin(2*sqrt(6279)*tspan(t)/65)/966;
+        -2*sqrt(6279)*sin(2*sqrt(6279)*tspan(t)/65)/65      cos(2*sqrt(6279)*tspan(t)/65)];
+    
+    inputIntegration = inputIntegration + (A/m)*sin(tspan(t)) * (tspan(end)-tspan(0))/1000;
+    
+    xResponse1 = phi*x0 + phi*[0 
+    
+end
